@@ -15,10 +15,12 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id])
+    @actorsremain = Actor.all - @movie.actors
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @movie = Movie.find_by_id(params[:id])
+    @movie_actors = @movie.actors.all
   end
 
   def update
@@ -34,3 +36,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 end
+
+
+# <% form_tag add_movie_path do |m| %>
+# <% end %>

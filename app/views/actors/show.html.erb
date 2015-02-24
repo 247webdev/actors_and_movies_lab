@@ -1,2 +1,11 @@
-<h1>Actors#show</h1>
-<p>Find me in app/views/actors/show.html.erb</p>
+<h1><%= @actor.name %></h1>
+
+<span class="spacer"><%= link_to "Edit", edit_actor_path(@actor), :class=>"btn btn-success btn-sm" %></span>
+<span class="spacer"><%= link_to "Delete", actor_path(@actor), method: :delete, data: { confirm: "Are you sure?" }, :class=>"btn btn-danger btn-sm" %></span>
+
+<h3>Has been in:</h3>
+<ul>
+  <% @actor_movies.each do |movie| %>
+    <li><%= movie.title %></li>
+  <% end %>
+</ul>

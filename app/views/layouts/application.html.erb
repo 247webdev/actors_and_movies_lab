@@ -6,12 +6,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  <!-- Latest compiled and minified CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+<!--
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  
-  <!-- Optional theme -->
+-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
   
+
   <% flash.each do |key, value| %>
     <% if key == "notice" %>
       <%= content_tag :div, value, class: "text-center alert alert-warning" %>
@@ -24,25 +25,29 @@
 
 </head>
 <body class="container-fluid">
-
-<%= yield %>
-
-<footer>
-  <div>
-    <span><%= link_to "Home", root_path, :class=>"btn btn-success btn-sm" %></span>
-    <span><%= link_to "Actors", actors_path, :class=>"btn btn-success btn-sm" %></span>
-    <span><%= link_to "Movies", movies_path, :class=>"btn btn-success btn-sm" %></span>
+  <div class="containerBody">
+    <%= yield %>    
   </div>
-  <div>
-    <span>Christian</span>
-    <span>WDI-16</span>
-    <span>Week 7 Lab 1</span>
-  </div>
-</footer>
+  <br><br>
+  <footer>
+    <span class="pull-left">
+      <span class="spacer"><%= link_to "Actors", actors_path, :class=>"btn btn-primary btn-sm" %></span>
+      <span class="spacerX2"><%= link_to "Movies", movies_path, :class=>"btn btn-primary btn-sm" %></span>
+    </span>
+    <span class="pull-right marginRight">
+      <span>Christian</span>
+      <span class="spacer">WDI-16</span>
+      <span class="spacer">Week 7 Lab 1</span>
+      <span class="spacer"> </span>
+    </span>
+  </footer>
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+  <script src="js/jquery-1.11.2.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+<!--
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+-->
 </body>
 </html>
 

@@ -1,3 +1,74 @@
-// Place all the styles related to the site controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #b1dfff;
+  /*background-color: #226a8f; darker blue */
+  color: #555;
+}
+
+small {
+  color: #777 !important;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+}
+
+a:link {
+
+}
+
+a:visited {
+  
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  
+}
+
+footer {
+  position: fixed;
+  left: -20px;
+  bottom: 0px;
+  height: 58px;
+  width: 106%;
+  padding: 6px 15px 10px 15px;
+  text-align: center;
+  background-color: #eee;
+  color: #888;
+}
+
+.containerBody {
+  width: 600px;
+  margin: 0 auto 70px auto;
+
+}
+
+.spacer {
+  margin-left: 20px;
+}
+
+.spacerX2 {
+  margin-left: 40px;
+}
+
+.spacerX3 {
+  margin-left: 60px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.marginRight {
+  margin-right: 30px;
+}
+
+.abs {
+  position: absolute;
+}

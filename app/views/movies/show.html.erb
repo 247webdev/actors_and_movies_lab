@@ -1,9 +1,11 @@
-<h1><%= @movie.title %></h1>
+<h1><%= @movie.title %>&nbsp;<small><%= @movie.year %></small></h1>
 
-<p><%= @movie.year %></p>
+<span class="spacer"><%= link_to "Edit", edit_movie_path(@movie), :class=>"btn btn-success btn-sm" %></span>
+<span class="spacer"><%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, :class=>"btn btn-danger btn-sm" %></span>
 
-<%= link_to "Edit", edit_movie_path(@movie) %>
-<%= button_to "Delete", movie_path(@movie), :method => :delete %>
-<br><br>
-
-<%= link_to "Back to movies", movies_path %>
+<h3>Actors in this movie:</h3>
+<ul>
+  <% @movie_actors.each do |actor| %>
+    <li><%= actor.name %></li>
+  <% end %>
+</ul>

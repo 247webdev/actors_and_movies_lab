@@ -15,10 +15,12 @@ class ActorsController < ApplicationController
 
   def edit
     @actor = Actor.find(params[:id])
+    @moviesremain = Movie.all - @actor.movies
   end
 
   def show
-    @actor = Actor.find(params[:id])
+    @actor = Actor.find_by_id(params[:id])
+    @actor_movies = @actor.movies.all
   end
 
   def update
