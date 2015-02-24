@@ -1,12 +1,33 @@
-<h1>Edit this movie</h1>
+  <div class="page-header">
+    <h1>Edit: <%= @movie.title %></h1>
+  </div>
 
 <%= form_for @movie do |f| %>
   <%= f.text_field :title %>
   <%= f.text_field :year %>
+  <br>
+  <h3>Actors in this movie:</h3>
+  <ul>
+    <% @movie_actors.each do |actor| %>
+      <li><%= check_box actor.name %></li>
+      <!-- < %= actor.check_box("actor", "title") %> -->
+      
+    <% end %>
+  </ul>
+<!-- 
+<div class="field">
+    <%= f.label "Get Email" %> <br />
+    <%= f.check_box :send_email %> <br />
+</div>
+ -->
+
+
+
   <%= f.submit "Update" %>
 <% end %>
 
 <br><br>
+  <h3>Not in this movie</h3>
 <ul>
   <% @actorsremain.each do |a| %>
     <li><%= a.name %></li>

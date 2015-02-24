@@ -1,4 +1,7 @@
 class ActorsController < ApplicationController
+  
+  before_action :set_actor, only: [:show, :edit, :update, :destroy, :add_movie, :remove_movie]
+
   def index
     @actors = Actor.all
   end
@@ -14,25 +17,45 @@ class ActorsController < ApplicationController
   end
 
   def edit
-    @actor = Actor.find(params[:id])
-    @moviesremain = Movie.all - @actor.movies
+    @actor_movies = @actor.movies.all
+    @movies = Movie.all
+    @moviesremain = @movies - @actor.movies
+  end
+
+  def add_movie
+    movie = Movie.find(params[:movie_id])  # <=== id or movie_it??
+    @actor.movies << movie
+    redirect_to actors_path(@actor)
+  end
+
+  def remove_movie
+    movie = Movie.find(params[:movie_id])
+    actor.movies.destroy(movie)
+    redirect_to actors_path(actor)
   end
 
   def show
-    @actor = Actor.find_by_id(params[:id])
+    @movies_in = @actor.movies
     @actor_movies = @actor.movies.all
   end
 
   def update
     form_data = params.require(:actor).permit(:name)
-    actor = Actor.find(params[:id])
     actor.update_attributes form_data
     redirect_to actor_path(actor)
   end
 
   def destroy
-    actor = Actor.find(params[:id])
-    actor.destroy
+    @actor.destroy
     redirect_to actors_path
+  end
+
+  private
+  def set_actor
+    @actor = Actor.find(params[:id])
+  end
+
+  def actor_params
+    params.require(:actor).permit(:name)
   end
 end

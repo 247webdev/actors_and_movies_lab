@@ -1,4 +1,6 @@
-<h1><%= @actor.name %></h1>
+<div class="page-header">
+  <h1><%= @actor.name %></h1>
+</div>
 
 <span class="spacer"><%= link_to "Edit", edit_actor_path(@actor), :class=>"btn btn-success btn-sm" %></span>
 <span class="spacer"><%= link_to "Delete", actor_path(@actor), method: :delete, data: { confirm: "Are you sure?" }, :class=>"btn btn-danger btn-sm" %></span>
