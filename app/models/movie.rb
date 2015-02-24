@@ -1,4 +1,4 @@
 class Movie < ActiveRecord::Base
-  has_many :rollcall
-  has_many :actors, through: :rollcall
+  has_many :rollcalls
+  has_many :actors, through: :rollcalls
 end
