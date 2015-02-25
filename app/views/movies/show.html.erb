@@ -4,10 +4,22 @@
 
 <span class="spacer"><%= link_to "Edit", edit_movie_path(@movie), :class=>"btn btn-success btn-sm" %></span>
 <span class="spacer"><%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, :class=>"btn btn-danger btn-sm" %></span>
-
-<h3>Actors in this movie:</h3>
-<ul>
-  <% @movie_actors.each do |actor| %>
-    <li><%= actor.name %></li>
+<div class="box">
+  <h3>Actors in this movie:</h3>
+  <ul>
+    <% @movie_actors.each do |actor| %>
+      <li><%= actor.name %></li>
+      <%= button_to "X", remove_movie_path(@actor, role), :method => $ %>
+    <% end %>
+  </ul>
+  <% unless @movies.empty? %>
+    <%= form_tag add_movie_path do |f| %>
+    <select name="movie_id">
+      <% @movies.each do |movie| %>
+      <option value="<%= movie.id %>"><%= movie.title %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Add">
   <% end %>
-</ul>
+<% end %>    
+</div>

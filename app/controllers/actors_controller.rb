@@ -41,7 +41,7 @@ class ActorsController < ApplicationController
 
   def update
     form_data = params.require(:actor).permit(:name)
-    actor.update_attributes form_data
+    @actor.update_attributes form_data
     redirect_to actor_path(actor)
   end
 
@@ -52,7 +52,7 @@ class ActorsController < ApplicationController
 
   private
   def set_actor
-    @actor = Actor.find(params[:id])
+    @actor = Actor.find_by_id(params[:id])
   end
 
   def actor_params

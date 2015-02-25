@@ -22,6 +22,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @actor_in = @movie.actors
     @movie_actors = @movie.actors.all
   end
 
@@ -57,7 +58,3 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title)
   end
 end
-
-
-# <% form_tag add_movie_path do |m| %>
-# <% end %>
