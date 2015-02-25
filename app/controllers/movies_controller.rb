@@ -19,6 +19,8 @@ class MoviesController < ApplicationController
 
   def show
     @actors = Actor.all - @movie.actors
+    @commentable = find_commentable
+    @comments = @commentable.comments
   end
 
   def update
